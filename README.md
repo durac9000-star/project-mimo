@@ -3,9 +3,11 @@
 > Continuous, reasoning-driven SQL injection scanner for production APIs.
 > Powered by MiMo multi-agent pipelines.
 
+[![ci](https://github.com/durac9000-star/project-mimo/actions/workflows/ci.yml/badge.svg)](https://github.com/durac9000-star/project-mimo/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 ![MiMo](https://img.shields.io/badge/MiMo-multi--agent-blue)
+![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)
 
 ## Problem
 
