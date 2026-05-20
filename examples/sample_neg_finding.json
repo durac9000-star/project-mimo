@@ -1,0 +1,31 @@
+{
+  "endpoint": {
+    "method": "POST",
+    "path": "/api/auth/login",
+    "parameters": [
+      { "name": "username", "in": "body", "type": "string" },
+      { "name": "password", "in": "body", "type": "string" }
+    ],
+    "inferred_table": "users",
+    "db_fingerprint_guess": "postgres"
+  },
+  "payload_used": {
+    "payload": "admin' OR 1=1-- -",
+    "class": "boolean-based-blind",
+    "rationale": "Classic auth-bypass probe.",
+    "expected_signal": "http_status == 200 AND auth_token in response"
+  },
+  "observed": {
+    "response_latency_ms": 87,
+    "http_status": 401,
+    "response_size_bytes": 64
+  },
+  "verdict": {
+    "confidence": 0.04,
+    "category": "rejected",
+    "exploitability": "none",
+    "remediation": "No action — endpoint correctly rejects malformed credentials. Use of prepared statements suspected.",
+    "notes_on_rejection": "Response identical to baseline 401 with random invalid creds; no SQL error leak; latency unchanged."
+  },
+  "notes": "Sample of rejected finding. Sentinel filters this out before reaching triage so analysts don't drown in false positives."
+}

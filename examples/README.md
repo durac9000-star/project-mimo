@@ -16,3 +16,11 @@ python -m sentinel.cli \
 Expected: scanner extracts ranked endpoints, generates payloads, hits the
 target, classifies responses, and writes a triage report when a finding
 crosses the confidence threshold.
+
+## Sample reports
+
+- `sample_report.md` — human-readable triage report
+- `sample_blind_sqli.json` — confirmed time-based blind SQLi finding (machine-readable)
+- `sample_neg_finding.json` — rejected finding showcasing false-positive filtering
+
+The JSON samples mirror the schema produced by `sentinel --output report.json`.
