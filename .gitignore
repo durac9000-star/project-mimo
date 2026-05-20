@@ -1,0 +1,26 @@
+# Build artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+.mimo_api_key
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store

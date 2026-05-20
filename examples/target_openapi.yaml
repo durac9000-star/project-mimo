@@ -1,0 +1,33 @@
+openapi: "3.0.3"
+info:
+  title: Demo Vulnerable API
+  version: 1.0.0
+paths:
+  /api/v1/products:
+    get:
+      summary: List products
+      parameters:
+        - name: category
+          in: query
+          schema: {type: string}
+        - name: sort_by
+          in: query
+          schema: {type: string}
+        - name: limit
+          in: query
+          schema: {type: integer}
+  /api/v1/users/{id}:
+    get:
+      summary: Fetch user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: integer}
+  /api/v1/search:
+    get:
+      summary: Free-text search
+      parameters:
+        - name: q
+          in: query
+          schema: {type: string}
